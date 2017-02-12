@@ -55,7 +55,7 @@ public class Flight implements Serializable {
     private Date departureDate;
 
     @Column(nullable = false)
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date arrivalDate;
 
     @Column(nullable = false)
@@ -72,6 +72,9 @@ public class Flight implements Serializable {
 
     @Column(nullable = false)
     private double discount;
+
+    @Column(nullable = false)
+    private String currency;
 
     public Flight() {
     }

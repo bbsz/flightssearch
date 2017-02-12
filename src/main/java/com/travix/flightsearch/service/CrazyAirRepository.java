@@ -24,6 +24,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource(collectionResourceRel = "crazyair", path = "crazyair")
 interface CrazyAirRepository extends JpaRepository<Flight, Long> {
 
-	Flight findByDestinationAndOrigin(@Param("destination") String destination, @Param("origin") String origin);
 
 }
