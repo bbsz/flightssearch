@@ -18,6 +18,8 @@ package com.travix.flightsearch.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
@@ -35,9 +37,11 @@ public class Flight implements Serializable {
     private Long id;
 
     @Column(nullable = false)
+    @Enumerated(EnumType.ORDINAL)
     private SearchProvider provider;
 
     @Column(nullable = false)
+    @Enumerated(EnumType.ORDINAL)
     private CabinClass cabinClass;
 
     @Column(nullable = false)
@@ -55,7 +59,7 @@ public class Flight implements Serializable {
     private Date arrivalDate;
 
     @Column(nullable = false)
-    private int numberOfPassengers;
+    private int passengersCount;
 
     @Column(nullable = false)
     private String airLine;
@@ -96,8 +100,8 @@ public class Flight implements Serializable {
         return arrivalDate;
     }
 
-    public int getNumberOfPassengers() {
-        return numberOfPassengers;
+    public int getPassengersCount() {
+        return passengersCount;
     }
 
     public String getAirLine() {

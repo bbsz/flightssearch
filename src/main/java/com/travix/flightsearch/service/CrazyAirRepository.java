@@ -16,19 +16,14 @@
 
 package com.travix.flightsearch.service;
 
-import com.travix.flightsearch.domain.City;
-
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import com.travix.flightsearch.domain.Flight;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-@RepositoryRestResource(collectionResourceRel = "cities", path = "cities")
-interface CityRepository extends PagingAndSortingRepository<City, Long> {
+@RepositoryRestResource(collectionResourceRel = "crazyair", path = "crazyair")
+interface CrazyAirRepository extends JpaRepository<Flight, Long> {
 
-	Page<City> findByNameContainingAndCountryContainingAllIgnoringCase(@Param("name") String name, @Param("country") String country, Pageable pageable);
-
-	City findByNameAndCountryAllIgnoringCase(@Param("name") String name, @Param("country") String country);
+	Flight findByDestinationAndOrigin(@Param("destination") String destination, @Param("origin") String origin);
 
 }
