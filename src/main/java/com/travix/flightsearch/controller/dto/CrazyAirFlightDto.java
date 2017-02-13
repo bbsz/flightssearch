@@ -27,11 +27,11 @@ public class CrazyAirFlightDto {
     @JsonProperty(value = "destinationAirportCode", required = true)
     private String destinationAirportCode;
 
-    @JsonFormat(pattern = "mm-dd-yyyy HH:MM:ss")
+    @JsonFormat(pattern = "MM-dd-yyyy HH:mm:ss")
     @JsonProperty(value = "departureDate", required = true)
     private Date departureDate;
 
-    @JsonFormat(pattern = "mm-dd-yyyy HH:MM:ss")
+    @JsonFormat(pattern = "MM-dd-yyyy HH:mm:ss")
     @JsonProperty(value = "arrivalDate", required = true)
     private Date arrivalDate;
 

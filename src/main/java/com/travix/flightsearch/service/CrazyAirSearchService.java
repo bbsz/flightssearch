@@ -21,7 +21,7 @@ public class CrazyAirSearchService {
     }
 
     public List<Flight> getFlights(SearchCriteria sc) {
-        return flightsRepository.findCrazyAirFlights(sc.getOrigin(), sc.getDestination());
+        return flightsRepository.findCrazyAirFlights(sc.getOrigin(), sc.getDestination(), sc.getDepartureDate());
     }
 
 

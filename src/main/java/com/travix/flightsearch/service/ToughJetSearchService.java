@@ -21,7 +21,7 @@ public class ToughJetSearchService {
     }
 
     public List<Flight> getFlights(SearchCriteria sc) {
-        return flightsRepository.findToughJetFlights(sc.getOrigin(), sc.getDestination());
+        return flightsRepository.findToughJetFlights(sc.getOrigin(), sc.getDestination(), sc.getDepartureDate());
     }
 
 }
