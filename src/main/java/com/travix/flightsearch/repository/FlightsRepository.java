@@ -14,4 +14,8 @@ public interface FlightsRepository extends Repository<Flight, Long> {
 
     @Query("SELECT f FROM Flight f WHERE f.provider = 0 AND f.origin = :origin AND f.destination = :destination ")
     List<Flight> findCrazyAirFlights(@Param("origin") String origin, @Param("destination") String destination);
+
+    @Query("SELECT f FROM Flight f WHERE f.provider = 1 AND f.origin = :origin AND f.destination = :destination ")
+    List<Flight> findToughJetFlights(@Param("origin") String origin, @Param("destination") String destination);
+
 }

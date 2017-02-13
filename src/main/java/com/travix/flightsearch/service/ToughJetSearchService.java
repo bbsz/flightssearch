@@ -11,18 +11,17 @@ import java.util.List;
  * Created by sergej on 13.2.2017.
  */
 @Service
-public class CrazyAirSearchService {
+public class ToughJetSearchService {
 
     private FlightsRepository flightsRepository;
 
     @Autowired
-    public CrazyAirSearchService(FlightsRepository repository) {
+    public ToughJetSearchService(FlightsRepository repository) {
         this.flightsRepository = repository;
     }
 
     public List<Flight> getFlights(SearchCriteria sc) {
-        return flightsRepository.findCrazyAirFlights(sc.getOrigin(), sc.getDestination());
+        return flightsRepository.findToughJetFlights(sc.getOrigin(), sc.getDestination());
     }
-
 
 }

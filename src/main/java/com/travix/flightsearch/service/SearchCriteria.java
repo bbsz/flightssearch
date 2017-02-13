@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by sergej on 13.2.2017.
  */
-public class CrazyAirSearchCriteria {
+public class SearchCriteria {
     private String origin;
     private String destination;
     private Date departureDate;
