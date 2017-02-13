@@ -126,4 +126,52 @@ public class Flight implements Serializable {
     public double getPrice() {
         return getBasePrice() + getTax() - getDiscount();
     }
+
+    public void setProvider(SearchProvider provider) {
+        this.provider = provider;
+    }
+
+    public void setCabinClass(CabinClass cabinClass) {
+        this.cabinClass = cabinClass;
+    }
+
+    public void setOrigin(String origin) {
+        this.origin = origin;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
+
+    public void setDepartureDate(Date departureDate) {
+        this.departureDate = departureDate;
+    }
+
+    public void setArrivalDate(Date arrivalDate) {
+        this.arrivalDate = arrivalDate;
+    }
+
+    public void setPassengersCount(int passengersCount) {
+        this.passengersCount = passengersCount;
+    }
+
+    public void setAirLine(String airLine) {
+        this.airLine = airLine;
+    }
+
+    public void setBasePrice(double basePrice) {
+        this.basePrice = basePrice;
+    }
+
+    public void setTax(double tax) {
+        this.tax = tax;
+    }
+
+    public void setDiscount(double discount) {
+        this.discount = discount;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
 }

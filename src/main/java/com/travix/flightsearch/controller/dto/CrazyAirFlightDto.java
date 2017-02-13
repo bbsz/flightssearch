@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * Created by sergej on 13.2.2017.
  */
-public class CrazyAirSearchFlightDto {
+public class CrazyAirFlightDto {
     @JsonProperty(value = "airline", required = true)
     private String airLine;
 
@@ -36,10 +36,10 @@ public class CrazyAirSearchFlightDto {
     private Date arrivalDate;
 
 
-    public CrazyAirSearchFlightDto() {
+    public CrazyAirFlightDto() {
     }
 
-    public CrazyAirSearchFlightDto(Flight flight) {
+    public CrazyAirFlightDto(Flight flight) {
         this.airLine = flight.getAirLine();
         this.cabinClass = flight.getCabinClass().getCode();
         this.arrivalDate = flight.getArrivalDate();

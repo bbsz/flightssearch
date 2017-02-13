@@ -1,11 +1,9 @@
 package com.travix.flightsearch.controller;
 
-import com.travix.flightsearch.controller.dto.CrazyAirSearchFlightDto;
-import com.travix.flightsearch.controller.dto.CrazyAirSearchRequest;
+import com.travix.flightsearch.controller.dto.ToughJetFlightDto;
 import com.travix.flightsearch.controller.dto.ToughJetSearchRequest;
 import com.travix.flightsearch.domain.Flight;
 import com.travix.flightsearch.service.SearchCriteria;
-import com.travix.flightsearch.service.CrazyAirSearchService;
 import com.travix.flightsearch.service.ToughJetSearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -34,10 +32,10 @@ public class ToughJetFlightsSearchController {
     }
 
     @RequestMapping(value = "toughJet", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<CrazyAirSearchFlightDto> searchToughJet(@Valid @RequestBody ToughJetSearchRequest request) {
+    public List<ToughJetFlightDto> searchToughJet(@Valid @RequestBody ToughJetSearchRequest request) {
         SearchCriteria criteria = toSearchCriteria(request);
         List<Flight> flights = toughJetSearchService.getFlights(criteria);
-        List<CrazyAirSearchFlightDto> dtos = toSearchResponse(flights);
+        List<ToughJetFlightDto> dtos = toSearchResponse(flights);
         return dtos;
     }
 
@@ -52,9 +50,9 @@ public class ToughJetFlightsSearchController {
         return criteria;
     }
 
-    private List<CrazyAirSearchFlightDto> toSearchResponse(List<Flight> flights) {
-        Function<Flight, CrazyAirSearchFlightDto> responseMapper = flight -> {
-            CrazyAirSearchFlightDto response = new CrazyAirSearchFlightDto(flight);
+    private List<ToughJetFlightDto> toSearchResponse(List<Flight> flights) {
+        Function<Flight, ToughJetFlightDto> responseMapper = flight -> {
+            ToughJetFlightDto response = new ToughJetFlightDto(flight);
             return response;
         };
 
