@@ -68,7 +68,7 @@ public class ToughJetFlightDtoTest {
     private int getMonth(Date date) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        return cal.get(Calendar.MONTH);
+        return cal.get(Calendar.MONTH) + 1;
     }
 
     private int getDay(Date date) {
