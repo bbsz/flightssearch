@@ -6,11 +6,11 @@ import java.util.Date;
  * Created by sergej on 13.2.2017.
  */
 public class CrazyAirSearchCriteria {
-    public String origin;
-    public String destination;
-    public Date departureDate;
-    public Date returnDate;
-    public int passengersCount;
+    private String origin;
+    private String destination;
+    private Date departureDate;
+    private Date returnDate;
+    private int passengersCount;
 
     public String getOrigin() {
         return origin;
