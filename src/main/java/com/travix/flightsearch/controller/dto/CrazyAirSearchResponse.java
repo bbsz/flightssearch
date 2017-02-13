@@ -1,9 +1,7 @@
 package com.travix.flightsearch.controller.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.travix.flightsearch.domain.CabinClass;
 
 import java.util.Date;
@@ -11,20 +9,26 @@ import java.util.Date;
 /**
  * Created by sergej on 13.2.2017.
  */
-public class CrazyAirDto {
+public class CrazyAirSearchResponse {
     @JsonProperty(value = "airline", required = true)
     private String airLine;
+
     @JsonProperty(value = "price", required = true)
     private double price;
+
     @JsonProperty(value = "cabinclass", required = true)
     private CabinClass cabinClass;
+
     @JsonProperty(value = "departureAirportCode", required = true)
     private String departureAirportCode;
+
     @JsonProperty(value = "destinationAirportCode", required = true)
     private String destinationAirportCode;
+
     @JsonFormat(pattern = "mm-dd-yyyy HH:MM:ss")
     @JsonProperty(value = "departureDate", required = true)
     private Date departureDate;
+
     @JsonFormat(pattern = "mm-dd-yyyy HH:MM:ss")
     @JsonProperty(value = "arrivalDate", required = true)
     private Date arrivalDate;
