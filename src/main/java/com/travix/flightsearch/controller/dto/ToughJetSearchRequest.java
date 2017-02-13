@@ -1,13 +1,10 @@
 package com.travix.flightsearch.controller.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 import java.util.Calendar;
 import java.util.Date;
@@ -27,39 +24,39 @@ public class ToughJetSearchRequest {
     @JsonProperty(value = "to", required = true)
     private String destination;
 
-    @NotNull
+    @NotNull(message =  "numberOfAdults has not been specified.")
     @JsonProperty(value = "numberOfAdults", required = true)
-    private int passengersCount;
+    private Integer passengersCount;
 
     @NotNull
     @Range(min = 1, max = 31, message = "Invalid departure day specified.")
     @JsonProperty(value = "departureDay", required = true)
-    private int departureDay;
+    private Integer departureDay;
 
     @NotNull
     @Range(min = 1, max = 12, message = "Invalid departure month specified.")
     @JsonProperty(value = "departureMonth", required = true)
-    private int departureMonth;
+    private Integer departureMonth;
 
     @NotNull
     @Range(min = 2017, max = 9999, message = "Invalid departure year specified.")
     @JsonProperty(value = "departureYear", required = true)
-    private int departureYear;
+    private Integer departureYear;
 
     @NotNull
     @Range(min = 1, max = 31, message = "Invalid return day specified.")
     @JsonProperty(value = "returnDay", required = true)
-    private int returnDay;
+    private Integer returnDay;
 
     @NotNull
     @Range(min = 1, max = 12, message = "Invalid return month specified.")
     @JsonProperty(value = "returnMonth", required = true)
-    private int returnMonth;
+    private Integer returnMonth;
 
     @NotNull
     @Range(min = 2017, max = 9999, message = "Invalid return year specified.")
     @JsonProperty(value = "returnYear", required = true)
-    private int returnYear;
+    private Integer returnYear;
 
     @JsonIgnore
     private Date departureDate;
@@ -83,59 +80,59 @@ public class ToughJetSearchRequest {
         this.destination = destination;
     }
 
-    public int getPassengersCount() {
+    public Integer getPassengersCount() {
         return passengersCount;
     }
 
-    public void setPassengersCount(int passengersCount) {
+    public void setPassengersCount(Integer passengersCount) {
         this.passengersCount = passengersCount;
     }
 
-    public int getDepartureDay() {
+    public Integer getDepartureDay() {
         return departureDay;
     }
 
-    public void setDepartureDay(int departureDay) {
+    public void setDepartureDay(Integer departureDay) {
         this.departureDay = departureDay;
     }
 
-    public int getDepartureMonth() {
+    public Integer getDepartureMonth() {
         return departureMonth;
     }
 
-    public void setDepartureMonth(int departureMonth) {
+    public void setDepartureMonth(Integer departureMonth) {
         this.departureMonth = departureMonth;
     }
 
-    public int getDepartureYear() {
+    public Integer getDepartureYear() {
         return departureYear;
     }
 
-    public void setDepartureYear(int departureYear) {
+    public void setDepartureYear(Integer departureYear) {
         this.departureYear = departureYear;
     }
 
-    public int getReturnDay() {
+    public Integer getReturnDay() {
         return returnDay;
     }
 
-    public void setReturnDay(int returnDay) {
+    public void setReturnDay(Integer returnDay) {
         this.returnDay = returnDay;
     }
 
-    public int getReturnMonth() {
+    public Integer getReturnMonth() {
         return returnMonth;
     }
 
-    public void setReturnMonth(int returnMonth) {
+    public void setReturnMonth(Integer returnMonth) {
         this.returnMonth = returnMonth;
     }
 
-    public int getReturnYear() {
+    public Integer getReturnYear() {
         return returnYear;
     }
 
-    public void setReturnYear(int returnYear) {
+    public void setReturnYear(Integer returnYear) {
         this.returnYear = returnYear;
     }
 

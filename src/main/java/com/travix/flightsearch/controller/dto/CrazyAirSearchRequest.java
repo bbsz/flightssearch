@@ -23,9 +23,9 @@ public class CrazyAirSearchRequest {
     @JsonProperty(value = "destination", required = true)
     private String destination;
 
-    @NotNull
+    @NotNull(message = "numberOfPassengers has to be specified.")
     @JsonProperty(value = "numberOfPassengers", required = true)
-    private int passengersCount;
+    private Integer passengersCount;
 
     @NotNull
     @Future
@@ -57,11 +57,11 @@ public class CrazyAirSearchRequest {
         this.destination = destination;
     }
 
-    public int getPassengersCount() {
+    public Integer getPassengersCount() {
         return passengersCount;
     }
 
-    public void setPassengersCount(int passengersCount) {
+    public void setPassengersCount(Integer passengersCount) {
         this.passengersCount = passengersCount;
     }
 
