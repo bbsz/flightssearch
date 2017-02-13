@@ -14,31 +14,16 @@
  * limitations under the License.
  */
 
-package com.travix.flightsearch.service;
+package com.travix.flightsearch;
 
-import java.io.Serializable;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import org.springframework.util.Assert;
+@SpringBootApplication
+public class FlightsSearchApp {
 
-public class CitySearchCriteria implements Serializable {
-
-	private static final long serialVersionUID = 1L;
-
-	private String destination;
-
-	public CitySearchCriteria() {
+	public static void main(String[] args) throws Exception {
+		SpringApplication.run(FlightsSearchApp.class, args);
 	}
 
-	public CitySearchCriteria(String destination) {
-		Assert.notNull(destination, "Name must not be null");
-		this.destination = destination;
-	}
-
-	public String getDestination() {
-		return destination;
-	}
-
-	public void setDestination(String destination) {
-		this.destination = destination;
-	}
 }

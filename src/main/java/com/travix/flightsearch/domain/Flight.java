@@ -16,6 +16,9 @@
 
 package com.travix.flightsearch.domain;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.travix.flightsearch.controller.dto.CrazyAirDto;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -44,6 +47,7 @@ public class Flight implements Serializable {
     @Enumerated(EnumType.ORDINAL)
     private CabinClass cabinClass;
 
+    @JsonView(CrazyAirDto.CrazyAir.class)
     @Column(nullable = false)
     private String origin;
 
