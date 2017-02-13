@@ -1,8 +1,10 @@
 package com.travix.flightsearch.controller.dto;
 
+import com.fasterxml.jackson.annotation.JsonEnumDefaultValue;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.travix.flightsearch.domain.CabinClass;
+import com.travix.flightsearch.domain.Flight;
 
 import java.util.Date;
 
@@ -17,7 +19,7 @@ public class CrazyAirSearchResponse {
     private double price;
 
     @JsonProperty(value = "cabinclass", required = true)
-    private CabinClass cabinClass;
+    private String cabinClass;
 
     @JsonProperty(value = "departureAirportCode", required = true)
     private String departureAirportCode;
@@ -32,6 +34,18 @@ public class CrazyAirSearchResponse {
     @JsonFormat(pattern = "mm-dd-yyyy HH:MM:ss")
     @JsonProperty(value = "arrivalDate", required = true)
     private Date arrivalDate;
+
+
+    public CrazyAirSearchResponse() {
+    }
+
+    public CrazyAirSearchResponse(Flight flight) {
+        this.airLine = flight.getAirLine();
+        this.cabinClass = flight.getCabinClass().code;
+        this.arrivalDate = flight.getArrivalDate();
+        this.departureDate = flight.getDepartureDate();
+        this.price = flight.getPrice();
+    }
 
     public String getAirLine() {
         return airLine;
@@ -49,11 +63,11 @@ public class CrazyAirSearchResponse {
         this.price = price;
     }
 
-    public CabinClass getCabinClass() {
+    public String getCabinClass() {
         return cabinClass;
     }
 
-    public void setCabinClass(CabinClass cabinClass) {
+    public void setCabinClass(String cabinClass) {
         this.cabinClass = cabinClass;
     }
 

@@ -6,7 +6,7 @@ package com.travix.flightsearch.domain;
 public enum SearchProvider {
     CRAZY_AIR("CA"), TOUGH_JET("TJ");
 
-    private String code;
+    public final String code;
 
     private SearchProvider(String code) {
         this.code = code;

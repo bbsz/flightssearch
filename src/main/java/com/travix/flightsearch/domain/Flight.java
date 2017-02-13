@@ -125,4 +125,8 @@ public class Flight implements Serializable {
     public double getDiscount() {
         return discount;
     }
+
+    public double getPrice() {
+        return getBasePrice() + getTax() - getDiscount();
+    }
 }
