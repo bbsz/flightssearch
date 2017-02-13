@@ -7,10 +7,9 @@ import com.travix.flightsearch.service.CrazyAirSearchCriteria;
 import com.travix.flightsearch.service.CrazyAirSearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -20,21 +19,21 @@ import java.util.stream.Collectors;
  */
 @RestController
 @RequestMapping("flightsSearch/")
-public class FlightsSearchController {
+public class CrazyAirFlightsSearchController {
 
     private CrazyAirSearchService crazyAirSearch;
 
     @Autowired
-    public FlightsSearchController(CrazyAirSearchService crazyAirSearch) {
+    public CrazyAirFlightsSearchController(CrazyAirSearchService crazyAirSearch) {
         this.crazyAirSearch = crazyAirSearch;
     }
 
     @RequestMapping(value = "crayzAir", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<CrazyAirSearchFlightDto> searchCrazyAir(CrazyAirSearchRequest request) {
+    public List<CrazyAirSearchFlightDto> searchCrazyAir(@Valid @RequestBody CrazyAirSearchRequest request) {
         CrazyAirSearchCriteria criteria = toSearchCriteria(request);
         List<Flight> flights = crazyAirSearch.getFlights(criteria);
-        List<CrazyAirSearchFlightDto> responses = toSearchResponse(flights);
-        return responses;
+        List<CrazyAirSearchFlightDto> dtos = toSearchResponse(flights);
+        return dtos;
     }
 
     private CrazyAirSearchCriteria toSearchCriteria(CrazyAirSearchRequest request) {

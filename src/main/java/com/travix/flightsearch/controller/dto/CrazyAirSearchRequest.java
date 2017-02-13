@@ -2,28 +2,43 @@ package com.travix.flightsearch.controller.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.validator.constraints.Length;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 /**
  * Created by sergej on 13.2.2017.
  */
 public class CrazyAirSearchRequest {
+    @NotNull
+    @Length(max = 3, min = 3, message = "Origin must be 3 letter IATA code")
     @JsonProperty(value = "origin", required = true)
     private String origin;
 
+    @NotNull
+    @Length(max = 3, min = 3, message = "Destination must be 3 letter IATA code")
     @JsonProperty(value = "destination", required = true)
     private String destination;
 
+    @NotNull
     @JsonProperty(value = "numberOfPassengers", required = true)
     private int passengersCount;
 
-    @JsonFormat(pattern = "mm-dd-yyyy")
+    @NotNull
+    @Future
+    @DateTimeFormat(pattern = "MM-dd-yyyy")
+    @JsonFormat(pattern = "MM-dd-yyyy")
     @JsonProperty(value = "departureDate", required = true)
     private Date departureDate;
 
+    @NotNull
+    @Future
+    @DateTimeFormat(pattern = "MM-dd-yyyy")
+    @JsonFormat(pattern = "MM-dd-yyyy")
     @JsonProperty(value = "returnDate", required = true)
-    @JsonFormat(pattern = "mm-dd-yyyy")
     private Date returnDate;
 
     public String getOrigin() {
