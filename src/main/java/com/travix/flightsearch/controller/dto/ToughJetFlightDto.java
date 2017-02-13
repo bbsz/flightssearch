@@ -10,7 +10,7 @@ import java.util.Calendar;
  */
 public class ToughJetFlightDto {
 
-    @JsonProperty(value = "airLine", required = true)
+    @JsonProperty(value = "carrier", required = true)
     private String airLine;
 
     @JsonProperty(value = "basePrice", required = true)
