@@ -45,6 +45,8 @@ public class CrazyAirSearchFlightDto {
         this.arrivalDate = flight.getArrivalDate();
         this.departureDate = flight.getDepartureDate();
         this.price = flight.getPrice();
+        this.departureAirportCode = flight.getOrigin();
+        this.destinationAirportCode = flight.getDestination();
     }
 
     public String getAirLine() {
