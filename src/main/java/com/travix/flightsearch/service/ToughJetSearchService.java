@@ -5,6 +5,9 @@ import com.travix.flightsearch.repository.FlightsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,7 +24,26 @@ public class ToughJetSearchService {
     }
 
     public List<Flight> getFlights(SearchCriteria sc) {
-        return flightsRepository.findToughJetFlights(sc.getOrigin(), sc.getDestination(), sc.getDepartureDate());
+        Date departureDateFrom = sc.getDepartureDate();
+        Date departureDateTo = datePlusDay(sc.getDepartureDate());
+        Date returnDateFrom = sc.getReturnDate();
+        Date returnDateTo = datePlusDay(sc.getReturnDate());
+
+        List<Flight> flightsDeparture =  flightsRepository.findToughJetFlights(sc.getOrigin(), sc.getDestination(), departureDateFrom, departureDateTo);
+        List<Flight> flightsReturn =  flightsRepository.findToughJetFlights( sc.getDestination(), sc.getOrigin(), returnDateFrom, returnDateTo);
+
+        List<Flight> flights = new ArrayList<>();
+        flights.addAll(flightsDeparture);
+        flights.addAll(flightsReturn);
+
+        return flights;
+    }
+
+    private Date datePlusDay(Date date){
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.DAY_OF_MONTH, 1);
+        return cal.getTime();
     }
 
 }

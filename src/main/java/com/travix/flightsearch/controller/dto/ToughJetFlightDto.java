@@ -61,13 +61,13 @@ public class ToughJetFlightDto {
         Calendar departure = Calendar.getInstance();
         departure.setTime(flight.getDepartureDate());
         this.setDepartureDay(departure.get(Calendar.DAY_OF_MONTH));
-        this.setDepartureMonth(departure.get(Calendar.MONTH));
+        this.setDepartureMonth(departure.get(Calendar.MONTH) + 1);
         this.setDepartureYear(departure.get(Calendar.YEAR));
 
         Calendar arrival = Calendar.getInstance();
-        departure.setTime(flight.getArrivalDate());
+        arrival.setTime(flight.getArrivalDate());
         this.setReturnDay(arrival.get(Calendar.DAY_OF_MONTH));
-        this.setReturnMonth(arrival.get(Calendar.MONTH));
+        this.setReturnMonth(arrival.get(Calendar.MONTH) + 1);
         this.setReturnYear(arrival.get(Calendar.YEAR));
     }
 
