@@ -6,9 +6,13 @@ package com.travix.flightsearch.domain;
 public enum CabinClass {
     ECONOMY("E"), BUSINESS("B");
 
-    public final String code;
+    private String code;
 
-    private CabinClass(String code){
+    private CabinClass(String code) {
         this.code = code;
+    }
+
+    public String getCode() {
+        return code;
     }
 }

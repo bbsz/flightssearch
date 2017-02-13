@@ -1,7 +1,7 @@
 package com.travix.flightsearch.controller;
 
 import com.travix.flightsearch.controller.dto.CrazyAirSearchRequest;
-import com.travix.flightsearch.controller.dto.CrazyAirSearchResponse;
+import com.travix.flightsearch.controller.dto.CrazyAirSearchFlightDto;
 import com.travix.flightsearch.domain.Flight;
 import com.travix.flightsearch.service.CrazyAirSearchCriteria;
 import com.travix.flightsearch.service.CrazyAirSearchService;
@@ -30,10 +30,10 @@ public class FlightsSearchController {
     }
 
     @RequestMapping(value = "crayzAir", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<CrazyAirSearchResponse> searchCrazyAir(CrazyAirSearchRequest request) {
+    public List<CrazyAirSearchFlightDto> searchCrazyAir(CrazyAirSearchRequest request) {
         CrazyAirSearchCriteria criteria = toSearchCriteria(request);
         List<Flight> flights = crazyAirSearch.getFlights(criteria);
-        List<CrazyAirSearchResponse> responses = toSearchResponse(flights);
+        List<CrazyAirSearchFlightDto> responses = toSearchResponse(flights);
         return responses;
     }
 
@@ -48,9 +48,9 @@ public class FlightsSearchController {
         return criteria;
     }
 
-    private List<CrazyAirSearchResponse> toSearchResponse(List<Flight> flights) {
-        Function<Flight, CrazyAirSearchResponse> responseMapper = flight -> {
-            CrazyAirSearchResponse response = new CrazyAirSearchResponse(flight);
+    private List<CrazyAirSearchFlightDto> toSearchResponse(List<Flight> flights) {
+        Function<Flight, CrazyAirSearchFlightDto> responseMapper = flight -> {
+            CrazyAirSearchFlightDto response = new CrazyAirSearchFlightDto(flight);
             return response;
         };
 

@@ -16,9 +16,6 @@
 
 package com.travix.flightsearch.domain;
 
-import com.fasterxml.jackson.annotation.JsonView;
-import com.travix.flightsearch.controller.dto.CrazyAirSearchResponse;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
