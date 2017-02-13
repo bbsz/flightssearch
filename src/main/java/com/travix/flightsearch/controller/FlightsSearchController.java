@@ -1,7 +1,7 @@
 package com.travix.flightsearch.controller;
 
-import com.travix.flightsearch.controller.dto.CrazyAirSearchRequest;
 import com.travix.flightsearch.controller.dto.CrazyAirSearchFlightDto;
+import com.travix.flightsearch.controller.dto.CrazyAirSearchRequest;
 import com.travix.flightsearch.domain.Flight;
 import com.travix.flightsearch.service.CrazyAirSearchCriteria;
 import com.travix.flightsearch.service.CrazyAirSearchService;
